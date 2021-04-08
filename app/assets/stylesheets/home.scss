@@ -1,0 +1,64 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.content-container {
+  padding: 20px 120px;
+
+  .content-left-container {
+    .filters-container {
+      .card-header {
+        .filter-header-btn {
+          padding: 15px 20px;
+          text-align: left;
+          text-decoration: none;
+        }
+      }
+
+      .card-body {
+        padding: 0;
+
+        ul {
+          padding: 0;
+          margin: 0;
+
+          li {
+            padding: 10px 20px;
+            list-style-type: none;
+            border-bottom: 1px solid #bbbbbb;
+          }
+        }
+      }
+    }
+  }
+
+  .content-right-container {
+    padding-left: 50px;
+  }
+}
+
+.filters-container {
+  h3 {
+    margin: 0;
+    margin-right: 20px;
+  }
+
+  .filters-selected-container {
+    margin-right: 20px;
+    line-height: 35px;
+
+    .filter-heading {
+      font-size: 20px;
+      color: black;
+    }
+
+    .filter-content {
+      font-size: 16px;
+      color: white;
+      background-color: skyblue;
+      border-radius: 4px;
+      border: 1px solid #bbbbbb;
+      padding: 4px 10px;
+    }
+  }
+}

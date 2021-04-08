@@ -1,0 +1,51 @@
+<div id="car_filters" class="filters-container">
+  <div class="card">
+    <div class="card-header p-0">
+      <h5 class="mb-0">
+        <button class="btn btn-primary w-100 filter-header-btn only-header-btn" >
+          All Vehicles
+        </button>
+      </h5>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header p-0">
+      <h5 class="mb-0">
+        <button class="btn btn-link w-100 collapsed filter-header-btn" data-toggle="collapse" data-target="#car_make" aria-expanded="false" aria-controls="car_make">
+          Make
+        </button>
+      </h5>
+    </div>
+    <div id="car_make" class="collapse" aria-labelledby="headingTwo" data-parent="#car_filters">
+      <div class="card-body">
+        <ul>
+          <% get_car_make_list.each do |car_make| %>
+            <li>
+              <%= link_to car_make[:text], car_make[:link] %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header p-0">
+      <h5 class="mb-0">
+        <button class="btn btn-link w-100 collapsed filter-header-btn" data-toggle="collapse" data-target="#car_type" aria-expanded="false" aria-controls="car_type">
+          Type
+        </button>
+      </h5>
+    </div>
+    <div id="car_type" class="collapse" aria-labelledby="headingThree" data-parent="#car_filters">
+      <div class="card-body">
+        <ul>
+          <% get_car_type_list.each do |car_make| %>
+            <li>
+              <%= link_to car_make[:text], car_make[:link] %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
