@@ -1,22 +1,22 @@
 <div class="col-6">
   <div class="card rental-item-card">
     <%= link_to '#_', class: 'card-img-top' do %>
-      <%= image_tag image_url('vehicle_icon') %>
+      <%= image_tag image_url('vehicle_icon.jpg') %>
     <% end %>
     <div class="card-body">
       <h5 class="card-title"><%= rental_item['ItemDescription'] %></h5>
 
       <div class="d-flex justify-content-between vehicle-attributes-container">
         <div class="attribute-item">
-          <%= image_tag image_url('vehicle_type'), class: 'vehicle-type-icon' %>
+          <%= image_tag image_url('vehicle_type.svg'), class: 'vehicle-type-icon' %>
           <p><%= rental_item['ItemGroup'] %></p>
         </div>
         <div class="attribute-item">
-          <%= image_tag image_url('fuel'), class: 'fuel-icon' %>
+          <%= image_tag image_url('fuel.svg'), class: 'fuel-icon' %>
           <p>Diesel</p>
         </div>
         <div class="attribute-item">
-          <%= image_tag image_url('cog'), class: 'cog-icon' %>
+          <%= image_tag image_url('cog.svg'), class: 'cog-icon' %>
           <p>Text</p>
         </div>
       </div>
