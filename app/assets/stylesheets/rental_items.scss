@@ -44,7 +44,16 @@
     .rental-item-content-container {
       margin-top: 20px;
       max-height: 650px;
-      overflow-y: auto;
+
+      .loading-element {
+        height: 650px;
+      }
+
+      .rental-item-body-container {
+        height: 650px;
+        width: 100%;
+        overflow-y: auto;
+      }
     }
   }
 }

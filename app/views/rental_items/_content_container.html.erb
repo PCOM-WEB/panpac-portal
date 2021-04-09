@@ -1,6 +1,10 @@
-<div class="rental-item-content-container position-relative">
-  <div class="loading-element collapse js-loading-element"><p>Loading...</p></div>
-  <div id="rental_item_content_container" class="row no-gutters">
-    <%= render partial: '/rental_items/rental_item', collection: @rental_items, as: :rental_item %>
+<div class="rental-item-content-container">
+  <div class="position-relative">
+    <div class="loading-element collapse js-loading-element"><p>Loading...</p></div>
+  </div>
+  <div class="rental-item-body-container">
+    <div id="rental_item_content_container" class="row no-gutters">
+      <%= render partial: '/rental_items/rental_item', collection: @rental_items, as: :rental_item %>
+    </div>
   </div>
 </div>
