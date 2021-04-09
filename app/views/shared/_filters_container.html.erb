@@ -1,0 +1,17 @@
+<%= form_tag rental_items_path, method: :get, id: 'rental_items_form', remote: true do %>
+  <%= hidden_field_tag 'itembrand', '', id: 'item_brand' %>
+  <%= hidden_field_tag 'itemgroup', '', id: 'item_group' %>
+  <%= submit_tag "", id: 'rental_items_submit_btn', class: 'collapse' %>
+
+  <div class="filters-container">
+    <div class="d-flex justify-content-start">
+      <h3>Filters: </h3>
+      <div class="filters-make-container filters-selected-container">
+        <span class="filter-heading">Make: </span><span class="filter-content" id="brand_filter_value">All</span>
+      </div>
+      <div class="filters-type-container filters-selected-container">
+        <span class="filter-heading">Type: </span><span class="filter-content" id="rental_group_value">All</span>
+      </div>
+    </div>
+  </div>
+<% end %>

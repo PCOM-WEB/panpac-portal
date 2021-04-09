@@ -1,0 +1,2 @@
+module RentalItemGroupsHelper
+end

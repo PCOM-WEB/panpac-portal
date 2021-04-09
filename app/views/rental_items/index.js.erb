@@ -1,0 +1,2 @@
+$('#rental_item_content_container').html("<%= escape_javascript(render partial: '/rental_items/rental_item', collection: @rental_items, as: :rental_item) %>");
+$('.js-loading-element').addClass('collapse');
