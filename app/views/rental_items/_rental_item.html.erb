@@ -1,6 +1,6 @@
 <div class="col-6">
   <div class="card rental-item-card">
-    <%= link_to '#_', class: 'card-img-top' do %>
+    <%= link_to rental_item_path(rental_item['RentalItemID']), class: 'card-img-top' do %>
       <%= image_tag image_url('vehicle_icon.jpg') %>
     <% end %>
     <div class="card-body">

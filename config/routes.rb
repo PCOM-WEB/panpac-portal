@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root "rental_items#index"
 
   resources :users, only: [:new, :create]
-  resources :rental_items, only: [:index]
+  resources :rental_items, only: [:index, :show]
   resources :brands, only: [:index]
   resources :rental_item_groups, only: [:index]
 end

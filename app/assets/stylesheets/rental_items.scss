@@ -135,4 +135,53 @@
   }
 }
 
+.resource-container {
+  padding: 50px 150px;
+
+  .resource-image-container {
+    border-bottom: 1px solid grey;
+    border-left: 1px solid grey;
+
+    img {
+      display: block;
+      width: 100%;
+    }
+  }
+
+  h3 {
+    letter-spacing: 1px;
+  }
+
+  .resource-item-container {
+    padding: 20px 0;
+
+    .resource-item {
+      padding: 8px 0;
+
+      label {
+        font-weight: bold;
+        display: inline-block;
+        margin: 0;
+      }
+
+      p {
+        margin: 0;
+        display: inline-block;
+      }
+
+      &:first-child {
+        padding-top: 0;
+      }
+
+      &:last-child {
+        padding-bottom: 0;
+      }
+    }
+  }
+
+  .resource-details-container {
+    padding-top: 30px;
+  }
+}
+
 
