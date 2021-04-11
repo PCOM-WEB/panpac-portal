@@ -1,0 +1,41 @@
+<div class="resource-container row no-gutters">
+  <div class="col-6 offset-3">
+    <div class="resource-heading">
+      <h2>Login</h2>
+    </div>
+    <%= form_tag '', method: :post, class: 'resource-form' do %>
+      <div class="row no-gutters pt-3">
+        <div class="col-4">
+          <label for="email">Email</label>
+        </div>
+        <div class="col-6">
+          <%= text_field_tag 'email', '', required: true, class: 'w-100' %>
+        </div>
+      </div>
+
+      <div class="row no-gutters pt-3">
+        <div class="col-4">
+          <label for="password">Password</label>
+        </div>
+        <div class="col-6">
+          <%= password_field_tag 'password', '', required: true, class: 'w-100' %>
+        </div>
+      </div>
+
+      <div class="row no-gutters pt-3">
+        <div class="col-10 d-flex justify-content-center">
+          <%= submit_tag 'Submit', data: { disable_with: "Submitting..." }, class: 'btn btn-primary' %>
+        </div>
+      </div>
+
+      <div class="row no-gutters pt-5">
+        <div class="col-6">
+          <%= link_to 'Not a member yet? Sign up', register_form_users_path %>
+        </div>
+        <div class="col-6">
+          <%= link_to 'Forgot Password?', '#_' %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

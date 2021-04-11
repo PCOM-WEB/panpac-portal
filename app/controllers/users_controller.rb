@@ -1,9 +1,17 @@
 class UsersController < ApplicationController
 
-  def new
+  def login_form
+
+    respond_to do |format|
+      format.html
+    end
   end
 
-  def create
+  def register_form
+
+    respond_to do |format|
+      format.html
+    end
   end
 
   private

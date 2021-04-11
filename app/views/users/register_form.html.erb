@@ -1,0 +1,135 @@
+<div class="resource-container row no-gutters">
+  <div class="col-9 offset-2">
+    <div class="resource-heading">
+      <h2>Personal User Details</h2>
+    </div>
+    <%= form_tag '', method: :post, class: 'resource-form' do %>
+      <div class="row no-gutters pt-3">
+        <div class="col-6">
+          <div>
+            <label for="first_name">First Name*</label>
+          </div>
+          <div class="col-10 p-0">
+            <%= text_field_tag 'firstName', '', id: 'first_name', class: 'w-100', required: true %>
+          </div>
+        </div>
+        <div class="col-3 pl-3">
+          <div>
+            <label for="account_type">Account Type*</label>
+          </div>
+          <div>
+            <%= select_tag 'accountType', options_for_select(['Long Term', 'Short Term']), include_blank: 'Please Select', required: true, id: 'account_type', class: 'w-100' %>
+          </div>
+        </div>
+        <div class="col-3 pl-3">
+          <div>
+            <label for="nric">NRIC/FINPassport No.*</label>
+          </div>
+          <div>
+            <%= text_field_tag 'nric', '', id: 'nric', class: 'w-100', required: true %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row no-gutters pt-3">
+        <div class="col-6">
+          <div>
+            <label for="last_name">Last Name*</label>
+          </div>
+          <div class="col-10 p-0">
+            <%= text_field_tag 'lastName', '', id: 'last_name', class: 'w-100', required: true %>
+          </div>
+        </div>
+        <div class="col-6 pl-3">
+          <div>
+            <label for="address">Address*</label>
+          </div>
+          <div>
+            <%= text_field_tag 'address', '', id: 'address', class: 'w-100', required: true %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row no-gutters pt-3">
+        <div class="col-6">
+          <div>
+            <label for="email">Email*</label>
+          </div>
+          <div class="col-10 p-0">
+            <%= text_field_tag 'email', '', id: 'email', class: 'w-100', required: true %>
+          </div>
+        </div>
+        <div class="col-6 pl-3">
+          <div>
+            <label for="post_code">Post Code*</label>
+          </div>
+          <div>
+            <%= text_field_tag 'postCode', '', id: 'post_code', class: 'w-100', required: true %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row no-gutters pt-3">
+        <div class="col-6">
+          <div>
+            <label for="phone">Phone Number*</label>
+          </div>
+          <div class="col-10 p-0">
+            <%= text_field_tag 'phone', '', id: 'phone', class: 'w-100', required: true %>
+          </div>
+        </div>
+        <div class="col-6 pl-3">
+          <div>
+            <label for="dob">Date of Birth*</label>
+          </div>
+          <div>
+            <%= date_field_tag 'dob', '', id: 'dob', class: 'w-100', required: true %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row no-gutters pt-3">
+        <div class="col-6">
+          <div>
+            <label for="nationality">Nationality*</label>
+          </div>
+          <div class="col-10 p-0">
+            <%= select_tag 'nationality', options_for_select([]), include_blank: 'Please Select', required: true, id: 'nationality', class: 'w-100' %>
+          </div>
+        </div>
+        <div class="col-6 pl-3">
+          <div>
+            <label for="gender">Gender*</label>
+          </div>
+          <div class="d-flex justify-content-start">
+            <div class="d-flex justify-content-start">
+              <%= radio_button_tag 'gender', 'male', true, id: 'gender_male', class: 'my-auto' %>
+              <label for="gender_male" class="my-auto ml-2">Male</label>
+            </div>
+            <div class="d-flex justify-content-start ml-5">
+              <%= radio_button_tag 'gender', 'female', false, id: 'gender_female', class: 'my-auto' %>
+              <label for="gender_female" class="my-auto ml-2">Female</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row no-gutters pt-3">
+        <div class="col-6">
+          <div>
+            <label for="documents">Supporting Documents*</label>
+          </div>
+          <div class="col-10 p-0">
+            <%= file_field_tag 'documents', id: 'documents', class: 'w-100', required: true %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row no-gutters pt-3">
+        <div class="col-10 d-flex justify-content-center">
+          <%= submit_tag 'Submit', data: { disable_with: "Submitting..." }, class: 'btn btn-primary' %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
