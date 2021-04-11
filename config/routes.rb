@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     member do
       get  :enquire_form
       post :enquire
+      get  :book_form
     end
   end
   resources :brands, only: [:index]
