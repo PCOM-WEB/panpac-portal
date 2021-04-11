@@ -1,0 +1,123 @@
+<div class="resource-container row no-gutters">
+  <div class="col-8 offset-2">
+    <div class="resource-heading">
+      <h2>Request Quote</h2>
+      <p class="text-danger pb-3">For Long Term Rental, Please fill out this form and submit, our salesman will get back to you.</p>
+    </div>
+    <%= form_tag '#_', method: :post, class: 'resource-form' do %>
+      <div class="row no-gutters">
+        <div class="col-6">
+          <label class="d-inline-block">Do you want to add more than one vehicle?*</label>
+          <%= check_box_tag 'vehicleCountMoreThanOne', true, false, class: 'd-inline-block ml-3' %>
+        </div>
+        <div class="col-4 pl-3">
+          <%= number_field_tag 'vehicleCount', 1, required: true, class: 'col-12', min: 1, step: 1 %>
+        </div>
+      </div>
+      <div class="row no-gutters pt-3">
+        <div class="col-6">
+          <div>
+            <label for="primary_use">Primary use of vehicle*</label>
+          </div>
+          <div>
+            <%= select_tag 'primaryUse', options_for_select([]), include_blank: 'Please Select', required: true, id: 'primary_use', class: 'col-6' %>
+          </div>
+        </div>
+        <div class="col-6 pl-3">
+          <div>
+            <label for="lease_duration">Duration of lease*</label>
+          </div>
+          <div>
+            <%= select_tag 'leaseDuration', options_for_select([]), include_blank: 'Please Select', required: true, id: 'lease_duration', class: 'col-6' %>
+          </div>
+        </div>
+      </div>
+      <div class="row no-gutters pt-3">
+        <div class="col-6">
+          <div>
+            <label>Make</label>
+          </div>
+          <div>
+            <%= text_field_tag 'makeDisabled', '', disabled: true, class: 'col-6' %>
+            <%= hidden_field_tag 'make', '' %>
+          </div>
+        </div>
+        <div class="col-6 pl-3">
+          <div>
+            <label>Model</label>
+          </div>
+          <div>
+            <%= text_field_tag 'modelDisabled', '', disabled: true, class: 'col-6' %>
+            <%= hidden_field_tag 'model', '' %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row no-gutters pt-3">
+        <div class="col-6">
+          <div>
+            <label for="company_name">Company Name</label>
+          </div>
+          <div>
+            <%= text_field_tag 'companyName', '', id: "company_name", class: 'col-6' %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row no-gutters pt-3">
+        <div class="col-6">
+          <div>
+            <label for="full_name">Full Name*</label>
+          </div>
+          <div>
+            <%= text_field_tag 'fullName', '', required: true, id: "full_name", class: 'col-6' %>
+          </div>
+        </div>
+        <div class="col-6 pl-3">
+          <div>
+            <label for="last_name">Last Name*</label>
+          </div>
+          <div>
+            <%= text_field_tag 'lastName', '', required: true, id: "last_name", class: 'col-6' %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row no-gutters pt-3">
+        <div class="col-6">
+          <div>
+            <label for="email">Email*</label>
+          </div>
+          <div>
+            <%= text_field_tag 'email', '', required: true, class: 'col-6' %>
+          </div>
+        </div>
+        <div class="col-6 pl-3">
+          <div>
+            <label for="phone">Phone Number*</label>
+          </div>
+          <div>
+            <%= text_field_tag 'phone', '', required: true, class: 'col-6' %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row no-gutters pt-3">
+        <div class="col-12">
+          <div>
+            <label for="additional_info">Any Additional Information</label>
+          </div>
+          <div>
+            <%= text_area_tag 'addistionalInfo', '', id: 'additional_info', class: 'col-10' %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row no-gutters pt-3">
+        <div class="col-10 d-flex justify-content-center">
+          <%= submit_tag 'Submit', data: { disable_with: "Submitting..." }, class: 'btn btn-primary' %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
