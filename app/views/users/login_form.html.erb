@@ -3,7 +3,7 @@
     <div class="resource-heading">
       <h2>Login</h2>
     </div>
-    <%= form_tag '', method: :post, class: 'resource-form' do %>
+    <%= form_tag '#', method: :post, class: 'resource-form' do %>
       <div class="row no-gutters pt-3">
         <div class="col-4">
           <label for="email">Email</label>
@@ -33,7 +33,7 @@
           <%= link_to 'Not a member yet? Sign up', register_form_users_path %>
         </div>
         <div class="col-6">
-          <%= link_to 'Forgot Password?', '#_' %>
+          <%= link_to 'Forgot Password?', '#' %>
         </div>
       </div>
     <% end %>
