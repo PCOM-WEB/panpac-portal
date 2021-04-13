@@ -7,6 +7,44 @@
       <div class="action-detail-container">
         <h3>Billing History</h3>
         <% if @billing_histories.present? %>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Voucher #</th>
+                <th scope="col">Sales Date</th>
+                <th scope="col">Calendar Period</th>
+                <th scope="col">Terms</th>
+                <th scope="col">Cust Code</th>
+                <th scope="col">Cust Name</th>
+                <th scope="col">Cust Attention</th>
+                <th scope="col">Total Amount</th>
+                <th scope="col">Applied Amount</th>
+                <th scope="col">GST Amount</th>
+                <th scope="col">Receipt Amount</th>
+                <th scope="col">Comments</th>
+                <th scope="col">Cust Address</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @billing_histories.each do |history| %>
+                <tr>
+                  <td><%= history['VoucherNumber'] %></td>
+                  <td><%= history['SalesDate'] %></td>
+                  <td><%= history['CalendarPeriod'] %></td>
+                  <td><%= history['Terms'] %></td>
+                  <td><%= history['CustCode'] %></td>
+                  <td><%= history['CustName'] %></td>
+                  <td><%= history['CustAttention'] %></td>
+                  <td><%= history['TotalAmt'] %></td>
+                  <td><%= history['AppliedAmt'] %></td>
+                  <td><%= history['GstAmt'] %></td>
+                  <td><%= history['ReceivedAmt'] %></td>
+                  <td><%= history['Comments'] %></td>
+                  <td><%= history['CustAddress'] %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
         <% else %>
           <p>There is no Billing History at the moment.</p>
         <% end %>

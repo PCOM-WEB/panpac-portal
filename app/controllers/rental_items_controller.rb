@@ -40,6 +40,7 @@ class RentalItemsController < ApplicationController
     response_body = JSON.parse(response.response_body)
     if response_body.present?
       @rental_items = response_body
+      @rental_items = @rental_items.uniq { |item| item['ItemBrand'] }
     end
   end
 
