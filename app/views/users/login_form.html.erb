@@ -3,13 +3,13 @@
     <div class="resource-heading">
       <h2>Login</h2>
     </div>
-    <%= form_tag '#', method: :post, class: 'resource-form' do %>
+    <%= form_tag login_users_path, method: :post, class: 'resource-form' do %>
       <div class="row no-gutters pt-3">
         <div class="col-4">
           <label for="email">Email</label>
         </div>
         <div class="col-6">
-          <%= text_field_tag 'email', '', required: true, class: 'w-100' %>
+          <%= text_field_tag 'email', '', required: true, id: 'email', class: 'w-100' %>
         </div>
       </div>
 
@@ -18,7 +18,27 @@
           <label for="password">Password</label>
         </div>
         <div class="col-6">
-          <%= password_field_tag 'password', '', required: true, class: 'w-100' %>
+          <%= password_field_tag 'password', '', required: true, id: 'password', class: 'w-100' %>
+        </div>
+      </div>
+
+      <div class="row no-gutters pt-3">
+        <div class="col-4">
+          <label for="corporate_user">Corporate User?</label>
+        </div>
+        <div class="col-6">
+          <%= check_box_tag 'corporateUser', '', false, id: 'corporate_user' %>
+        </div>
+      </div>
+
+      <div class="collapse" id="corporate_user_container">
+        <div class="row no-gutters pt-3">
+          <div class="col-4">
+            <label for="company_roc">Company ROC</label>
+          </div>
+          <div class="col-6">
+            <%= text_field_tag 'companyroc', '', required: true, id: 'company_roc', class: 'w-100' %>
+          </div>
         </div>
       </div>
 

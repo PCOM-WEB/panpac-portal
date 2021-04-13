@@ -1,4 +1,5 @@
 class RentalItemsController < ApplicationController
+  skip_before_action :authenticate_user, only: [:index, :show, :enquire_form]
   before_action :set_params, only: :show
 
   def index

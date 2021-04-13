@@ -1,4 +1,5 @@
 class RentalItemGroupsController < ApplicationController
+  skip_before_action :authenticate_user, only: [:index]
 
   def index
     fetch_rental_item_groups

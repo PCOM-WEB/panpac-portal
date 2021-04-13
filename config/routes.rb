@@ -4,8 +4,15 @@ Rails.application.routes.draw do
 
   resources :users, only: [] do
     collection do
-      get :login_form
-      get :register_form
+      get  :login_form
+      post :login
+      get  :register_form
+      get  :account_details
+      get  :staff_members
+      get  :ongoing_rental_contracts
+      get  :rental_history
+      get  :billing_history
+      delete :logout
     end
   end
   resources :rental_items, only: [:index, :show] do

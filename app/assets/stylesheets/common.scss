@@ -8,4 +8,12 @@ nav {
       display: inline-block;
     }
   }
+
+  .user-img {
+    width: 30px;
+    height: 30px;
+    display: block;
+    cursor: pointer;
+    border-radius: 50%;
+  }
 }

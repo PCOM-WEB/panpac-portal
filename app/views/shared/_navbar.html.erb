@@ -7,9 +7,27 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav d-block w-100">
-      <li class="nav-item float-right">
-        <%= link_to "Login", login_form_users_path, class: 'nav-link' %>
-      </li>
+      <% if @current_user.present? %>
+        <li class="nav-item float-right">
+          <div class="dropdown">
+            <%= image_tag image_url('user_icon.webp'), class: 'user-img', data: { toggle: 'dropdown' }, 'aria-haspopup' => true, 'aria-expanded' => false %>
+            </button>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+              <%= link_to 'Vehicle Listing', rental_items_path, class: 'dropdown-item' %>
+              <%= link_to 'Account Details', account_details_users_path, class: 'dropdown-item' %>
+              <%= link_to 'Staff Members', staff_members_users_path, class: 'dropdown-item' %>
+              <%= link_to 'Ongoing Contracts', ongoing_rental_contracts_users_path, class: 'dropdown-item' %>
+              <%= link_to 'Rental History', rental_history_users_path, class: 'dropdown-item' %>
+              <%= link_to 'Billing History', billing_history_users_path, class: 'dropdown-item' %>
+              <%= link_to 'Sign Out', logout_users_path, method: :delete, class: 'dropdown-item' %>
+            </div>
+          </div>
+        </li>
+      <% else %>
+        <li class="nav-item float-right">
+          <%= link_to "Login", login_form_users_path, class: 'nav-link' %>
+        </li>
+      <% end %>
     </ul>
   </div>
 </nav>

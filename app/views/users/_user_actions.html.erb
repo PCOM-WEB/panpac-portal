@@ -1,0 +1,23 @@
+<ul class="user-actions-list">
+  <li class="user-actions-list-item">
+    <%= link_to 'Vehicle Listing', rental_items_path, class: 'dropdown-item' %>
+  </li>
+  <li class="user-actions-list-item">
+    <%= link_to 'Account Details', account_details_users_path, class: 'dropdown-item' %>
+  </li>
+  <li class="user-actions-list-item">
+    <%= link_to 'Staff Members', staff_members_users_path, class: 'dropdown-item' %>
+  </li>
+  <li class="user-actions-list-item">
+    <%= link_to 'Ongoing Contracts', ongoing_rental_contracts_users_path, class: 'dropdown-item' %>
+  </li>
+  <li class="user-actions-list-item">
+    <%= link_to 'Rental History', rental_history_users_path, class: 'dropdown-item' %>
+  </li>
+  <li class="user-actions-list-item">
+    <%= link_to 'Billing History', billing_history_users_path, class: 'dropdown-item' %>
+  </li>
+  <li class="user-actions-list-item">
+    <%= link_to 'Sign Out', logout_users_path, method: :delete, class: 'dropdown-item' %>
+  </li>
+</ul>

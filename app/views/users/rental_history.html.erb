@@ -1,0 +1,16 @@
+<div class="dashboard-container">
+  <div class="row no-gutters">
+    <div class="col-3">
+      <%= render partial: 'users/user_actions' %>
+    </div>
+    <div class="col-9">
+      <div class="action-detail-container">
+        <h3>Rental History</h3>
+        <% if @rental_contracts.present? %>
+        <% else %>
+          <p>There is no Contract History at the moment.</p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
