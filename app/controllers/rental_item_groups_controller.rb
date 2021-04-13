@@ -14,8 +14,10 @@ class RentalItemGroupsController < ApplicationController
   def fetch_rental_item_groups
     response      = post_request('itemGroup', {})
     response_body = JSON.parse(response.response_body)
-    if response_body.present?
-      @rental_item_groups = response_body
+    if response.response_code == 200
+      @rental_item_groups = []
+      @rental_item_groups << { 'ItemGroup' => 'All', 'Description' => '' }
+      @rental_item_groups += response_body
     end
   end
 end

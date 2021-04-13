@@ -14,8 +14,10 @@ class BrandsController < ApplicationController
   def fetch_brands
     response      = post_request('brand', {})
     response_body = JSON.parse(response.response_body)
-    if response_body.present?
-      @brands = response_body
+    if response.response_code == 200
+      @brands = []
+      @brands << { 'Brand' => 'All', 'Description' => '' }
+      @brands += response_body
     end
   end
 end
