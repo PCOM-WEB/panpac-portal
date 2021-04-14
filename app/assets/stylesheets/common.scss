@@ -9,11 +9,20 @@ nav {
     }
   }
 
-  .user-img {
-    width: 30px;
-    height: 30px;
-    display: block;
-    cursor: pointer;
-    border-radius: 50%;
+  .user-profile {
+    label {
+      margin-right: 10px;
+      margin-bottom: 0;
+      line-height: 30px;
+      cursor: pointer;
+    }
+
+    .user-img {
+      width: 30px;
+      height: 30px;
+      display: block;
+      cursor: pointer;
+      border-radius: 50%;
+    }
   }
 }
