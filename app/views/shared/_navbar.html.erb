@@ -11,7 +11,7 @@
         <li class="nav-item float-right">
           <div class="dropdown">
             <div class="user-profile" data-toggle="dropdown" aria-haspopup='true' aria-expanded='false'>
-              <label for="user_icon" class="d-inline-block cursor-pointer"><%= @current_user.full_name %></label>
+              <label for="user_icon" class="d-inline-block cursor-pointer">Welcome <span class="user-identity"><%= @current_user.staff_id %></span></label>
               <%= image_tag image_url('user_icon.webp'), class: 'user-img d-inline-block', id: 'user_icon' %>
             </div>
             </button>

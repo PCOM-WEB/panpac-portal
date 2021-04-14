@@ -20,6 +20,9 @@ class UsersController < ApplicationController
       final_response['CompanyName'] = company_response_body['Name']
       session[:current_user_data]   = final_response
       redirect_to account_details_users_path
+    else
+      flash[:error] = ["Wrong Credentials"]
+      redirect_to login_form_users_path
     end
   end
 

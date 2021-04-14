@@ -15,7 +15,16 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   </head>
 
-  <body>
+  <body class="position-relative">
+    <% if flash[:error].present? %>
+      <div class="flash-container flash-error-container">
+        <ul>
+          <% flash[:error].each do |error| %>
+            <li><%= error %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
     <%= render partial: "/shared/navbar" %>
     <%= yield %>
   </body>
