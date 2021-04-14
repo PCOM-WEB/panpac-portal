@@ -6,7 +6,8 @@
     <div class="col-9">
       <div class="action-detail-container">
         <h3>Rental History</h3>
-        <% if @rental_contracts.present? %>
+        <% if @rental_histories.present? %>
+          <%= render partial: '/users/rental_contract_table', locals: { contracts: @rental_histories } %>
         <% else %>
           <p>There is no Contract History at the moment.</p>
         <% end %>

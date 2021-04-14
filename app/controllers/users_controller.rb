@@ -62,7 +62,7 @@ class UsersController < ApplicationController
 
   def rental_history
     response          = post_request('RentalContract/History', { custcode: @current_user.roc })
-    @rental_contracts = JSON.parse(response.response_body) if response.response_code == 200
+    @rental_histories = JSON.parse(response.response_body) if response.response_code == 200
 
     respond_to do |format|
       format.html

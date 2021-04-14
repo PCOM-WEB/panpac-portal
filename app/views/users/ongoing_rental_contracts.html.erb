@@ -7,6 +7,7 @@
       <div class="action-detail-container">
         <h3>Ongoing Contracts</h3>
         <% if @rental_contracts.present? %>
+          <%= render partial: '/users/rental_contract_table', locals: { contracts: @rental_contracts } %>
         <% else %>
           <p>There is no Ongoing contract at the moment.</p>
         <% end %>
