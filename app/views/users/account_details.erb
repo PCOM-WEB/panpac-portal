@@ -12,7 +12,7 @@
               <label for="name">Name</label>
             </div>
             <div>
-              <%= text_field_tag 'name', '', disabled: true, class: 'w-100' %>
+              <%= text_field_tag 'name', @current_user.company_name, disabled: true, class: 'w-100' %>
             </div>
           </div>
           <div class="col-6 pl-3">
@@ -20,7 +20,7 @@
               <label for="roc_no">ROC NO</label>
             </div>
             <div>
-              <%= text_field_tag 'roc_no', '', id: 'roc_no', disabled: true, class: 'w-100' %>
+              <%= text_field_tag 'roc_no', @current_user.roc_nos, id: 'roc_no', disabled: true, class: 'w-100' %>
             </div>
           </div>
         </div>
@@ -31,7 +31,7 @@
               <label for="address">Address</label>
             </div>
             <div>
-              <%= text_field_tag 'address', '', disabled: true, class: 'w-100' %>
+              <%= text_field_tag 'address', @current_user.address, disabled: true, class: 'w-100' %>
             </div>
           </div>
           <div class="col-6 pl-3">
@@ -39,7 +39,7 @@
               <label for="billing_address">Billing Address</label>
             </div>
             <div>
-              <%= text_field_tag 'billing_address', '', disabled: true, class: 'w-100' %>
+              <%= text_field_tag 'billing_address', @current_user.billing_address, disabled: true, class: 'w-100' %>
             </div>
           </div>
         </div>
@@ -50,7 +50,7 @@
               <label for="telephone">Telephone</label>
             </div>
             <div>
-              <%= text_field_tag 'telephone', '', disabled: true, class: 'w-100' %>
+              <%= text_field_tag 'telephone', @current_user.telephone, disabled: true, class: 'w-100' %>
             </div>
           </div>
           <div class="col-6 pl-3">
@@ -58,7 +58,7 @@
               <label for="post_code">Post Code</label>
             </div>
             <div>
-              <%= text_field_tag 'post_code', '', disabled: true, class: 'w-100' %>
+              <%= text_field_tag 'post_code', @current_user.postal_address, disabled: true, class: 'w-100' %>
             </div>
           </div>
         </div>
@@ -69,7 +69,7 @@
               <label for="contact_person">Contact Person</label>
             </div>
             <div>
-              <%= text_field_tag 'contact_person', '', disabled: true, class: 'w-100' %>
+              <%= text_field_tag 'contact_person', @current_user.contact_person, disabled: true, class: 'w-100' %>
             </div>
           </div>
           <div class="col-6 pl-3">
@@ -77,7 +77,7 @@
               <label for="contact_person_email">Contact Person Email</label>
             </div>
             <div>
-              <%= text_field_tag 'contact_person_email', '', disabled: true, class: 'w-100' %>
+              <%= text_field_tag 'contact_person_email', @current_user.contact_person_email, disabled: true, class: 'w-100' %>
             </div>
           </div>
         </div>
