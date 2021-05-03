@@ -1,0 +1,19 @@
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Enquire Submitted</h1>
+    <p>Vehicle Count: <%= @data[:vehicleCount] %></p>
+    <p>Primary Use: <%= @data[:primaryUse] %></p>
+    <p>Lease Duration: <%= @data[:leaseDuration].humanize %></p>
+    <p>Make: <%= @data[:make] %></p>
+    <p>Model: <%= @data[:model] %></p>
+    <p>Company Name: <%= @data[:companyName] %></p>
+    <p>Full Name: <%= @data[:fullName] %></p>
+    <p>Last Name: <%= @data[:lastName] %></p>
+    <p>Email: <%= @data[:email] %></p>
+    <p>Phone: <%= @data[:phone] %></p>
+    <p>Additional Info <%= @data[:addistionalInfo] %></p>
+  </body>
+</html>

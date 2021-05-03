@@ -1,3 +1,45 @@
+.primary-button {
+  background-color: #5d92d8 !important;
+  color: white !important;
+  padding: 5px !important;
+  border-radius: 4px !important;
+  cursor: pointer !important;
+  background-image: none !important;
+  font-weight: 400 !important;
+  text-shadow: none !important;
+  border: 1px solid white !important;
+  text-decoration: none !important;
+  height: 30px;
+  line-height: 18px;
+}
+
+.primary-button:hover {
+  background-color: white !important;
+  color: #5d92d8 !important;
+  border: 1px solid #5d92d8 !important;
+}
+
+.primary-button-light {
+  background-color: white !important;
+  color: #5d92d8 !important;
+  padding: 5px !important;
+  border-radius: 4px !important;
+  cursor: pointer !important;
+  background-image: none !important;
+  font-weight: 400 !important;
+  text-shadow: none !important;
+  text-decoration: none !important;
+  border: 1px solid #5d92d8 !important;
+  height: 30px;
+  line-height: 18px;
+}
+
+.primary-button-light:hover {
+  background-color: #5d92d8 !important;
+  color: white !important;
+  border: 1px solid white !important;
+}
+
 .flash-container {
   position: fixed;
   top: 20px;
@@ -59,3 +101,43 @@ nav {
     }
   }
 }
+
+.pagination {
+  a {
+    text-decoration: none;
+    padding: 0 10px;
+
+    &:first-child {
+      padding-left: 0;
+    }
+
+    &:last-child {
+      padding-right: 0;
+    }
+  }
+
+  .current {
+    padding: 0 10px;
+  }
+}
+
+.resource-table {
+  thead {
+    tr {
+      th {
+        background-color: #5d92d8;
+      }
+    }
+  }
+
+  tbody {
+    tr {
+      .table-pay-field {
+        border-left: none;
+        border-right: none;
+        border-bottom: none;
+      }
+    }
+  }
+}
+

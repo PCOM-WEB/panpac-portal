@@ -1,0 +1,96 @@
+<div class="resource-container row no-gutters">
+  <div class="col-8 offset-2">
+    <div class="resource-heading">
+      <h2>Service Booking</h2>
+    </div>
+    <%= form_tag service_booking_contracts_path, method: :post, remote: true, class: 'resource-form' do %>
+      <div class="row no-gutters pt-3">
+        <div class="col-6">
+          <div>
+            <label>Contract No</label>
+          </div>
+          <div>
+            <%= text_field_tag 'RentalContractDisabled', @service_booking['RentalContract'], disabled: true, class: 'col-6' %>
+            <%= hidden_field_tag 'RentalContract', @service_booking['RentalContract'], id: 'rental_contract' %>
+          </div>
+        </div>
+        <div class="col-6 pl-3">
+          <div>
+            <label>Service Due Date</label>
+          </div>
+          <div>
+            <%= text_field_tag 'ServiceDueDisabled', @service_booking['ServiceDue'], disabled: true, class: 'col-6' %>
+            <%= hidden_field_tag 'ServiceDue', @service_booking['ServiceDue'], id: 'service_due' %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row no-gutters pt-3">
+        <div class="col-6">
+          <div>
+            <label>Make</label>
+          </div>
+          <div>
+            <%= text_field_tag 'makeDisabled', @service_booking['ItemBrand'], disabled: true, class: 'col-6' %>
+            <%= hidden_field_tag 'make', @service_booking['ItemBrand'], id: 'make' %>
+          </div>
+        </div>
+        <div class="col-6 pl-3">
+          <div>
+            <label>Model</label>
+          </div>
+          <div>
+            <%= text_field_tag 'modelDisabled', @service_booking['ItemModel'], disabled: true, class: 'col-6' %>
+            <%= hidden_field_tag 'model', @service_booking['ItemModel'], id: 'model' %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row no-gutters pt-3">
+        <div class="col-6">
+          <div>
+            <label>Vehicle No</label>
+          </div>
+          <div>
+            <%= text_field_tag 'VehicleNoDisabled', @service_booking['VehicleNo'], disabled: true, class: 'col-6' %>
+            <%= hidden_field_tag 'VehicleNo', @service_booking['VehicleNo'], id: 'vehicle_no' %>
+          </div>
+        </div>
+        <!-- <div class="col-6 pl-3">
+          <div>
+            <label>Contract Service History</label>
+          </div>
+          <div>
+            <%#= text_field_tag 'contractServiceHistoryDisabled', @service_booking['VehicleNo'], disabled: true, class: 'col-6' %>
+            <%#= hidden_field_tag 'contractServiceHistory', '', id: 'contract_service_history' %>
+          </div>
+        </div> -->
+      </div>
+
+      <div class="row no-gutters pt-3">
+        <div class="col-6">
+          <div>
+            <label>To Service Date</label>
+          </div>
+          <div>
+            <%= date_field_tag 'ToServiceDate', '', class: 'col-6', id: 'to_service_date' %>
+          </div>
+        </div>
+        <div class="col-6 pl-3">
+          <div>
+            <label>To Service Time</label>
+          </div>
+          <div>
+            <%= time_field_tag 'ToServiceTime', '', min: 8.hours, class: 'col-6', id: 'to_servce_time' %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row no-gutters pt-3">
+        <div class="col-10 d-flex justify-content-center">
+          <%= submit_tag 'Submit', data: { disable_with: "Submitting..." }, class: 'btn btn-primary' %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

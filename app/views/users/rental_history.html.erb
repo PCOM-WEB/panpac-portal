@@ -4,10 +4,43 @@
       <%= render partial: 'users/user_actions' %>
     </div>
     <div class="col-9">
-      <div class="action-detail-container">
+      <div class="action-detail-container pr-0">
         <h3>Rental History</h3>
         <% if @rental_histories.present? %>
-          <%= render partial: '/users/rental_contract_table', locals: { contracts: @rental_histories } %>
+          <table class="table table-bordered resource-table">
+            <thead>
+              <tr>
+                <th scope="col">Rental Contract</th>
+                <th scope="col">Vehicle No</th>
+                <th scope="col">Rent From</th>
+                <th scope="col">Rent To</th>
+                <th scope="col">Salesman</th>
+                <th scope="col">Outstanding Amount</th>
+                <th scope="col">Pending Payment</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @rental_histories.each do |history| %>
+                <tr>
+                  <td><%= history['RentalContract'] %></td>
+                  <td><%= history['VehicleNo'] %></td>
+                  <td><%= history['RentFrom'] %></td>
+                  <td><%= history['RentTo'] %></td>
+                  <td><%= history['SalesMan'] %></td>
+                  <td><%= history['OutstandingAmount'] %></td>
+                  <td class="d-flex justify-content-between table-pay-field">
+                    <% if history['OutstandingAmount'] > 0 %>
+                      <%= NO_LABEL %>
+                    <% else %>
+                      <p><%= YES_LABEL %></p>
+                      <%= link_to 'PAY', '#_', class: 'ml-2 primary-button-light' %>
+                    <% end %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+          <%= render partial: '/shared/pagination_data', locals: { resources: @rental_histories } %>
         <% else %>
           <p>There is no Contract History at the moment.</p>
         <% end %>

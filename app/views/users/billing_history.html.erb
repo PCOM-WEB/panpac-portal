@@ -7,22 +7,19 @@
       <div class="action-detail-container">
         <h3>Billing History</h3>
         <% if @billing_histories.present? %>
-          <table class="table table-striped">
+          <table class="table table-bordered resource-table">
             <thead>
               <tr>
                 <th scope="col">Voucher #</th>
                 <th scope="col">Sales Date</th>
-                <th scope="col">Calendar Period</th>
-                <th scope="col">Terms</th>
-                <th scope="col">Cust Code</th>
-                <th scope="col">Cust Name</th>
                 <th scope="col">Cust Attention</th>
-                <th scope="col">Total Amount</th>
+                <th scope="col">RentalContract</th>
+                <th scope="col">VehiclseNo</th>
+                <th scope="col">Salesman</th>
                 <th scope="col">Applied Amount</th>
-                <th scope="col">GST Amount</th>
                 <th scope="col">Receipt Amount</th>
                 <th scope="col">Comments</th>
-                <th scope="col">Cust Address</th>
+                <th scope="col">Payment Pending</th>
               </tr>
             </thead>
             <tbody>
@@ -30,21 +27,27 @@
                 <tr>
                   <td><%= history['VoucherNumber'] %></td>
                   <td><%= history['SalesDate'] %></td>
-                  <td><%= history['CalendarPeriod'] %></td>
-                  <td><%= history['Terms'] %></td>
-                  <td><%= history['CustCode'] %></td>
-                  <td><%= history['CustName'] %></td>
                   <td><%= history['CustAttention'] %></td>
-                  <td><%= history['TotalAmt'] %></td>
+                  <td><%= history['RentalContract'] %></td>
+                  <td><%= history['VehicleNo'] %></td>
+                  <td><%= history['Salesman'] %></td>
                   <td><%= history['AppliedAmt'] %></td>
-                  <td><%= history['GstAmt'] %></td>
                   <td><%= history['ReceivedAmt'] %></td>
                   <td><%= history['Comments'] %></td>
-                  <td><%= history['CustAddress'] %></td>
+                  <td class="d-flex justify-content-between table-pay-field">
+                    <% if history['ReceivedAmt'] > 0 %>
+                      <%= NO_LABEL %>
+                    <% else %>
+                      <p><%= YES_LABEL %></p>
+                      <%= link_to 'PAY', '#_', class: 'ml-2 primary-button-light' %>
+                    <% end %>
+                  </td>
                 </tr>
               <% end %>
             </tbody>
           </table>
+
+          <%= render partial: '/shared/pagination_data', locals: { resources: @billing_histories } %>
         <% else %>
           <p>There is no Billing History at the moment.</p>
         <% end %>

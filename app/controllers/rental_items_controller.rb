@@ -20,9 +20,18 @@ class RentalItemsController < ApplicationController
   end
 
   def enquire_form
+    @enquire_form = enquire_form_params
 
     respond_to do |format|
       format.html
+    end
+  end
+
+  def submit_enquire
+    RentalItemsMailer.with(enquire_submit_params).enquire_notification.deliver_now
+
+    respond_to do |format|
+      format.js
     end
   end
 
@@ -40,7 +49,7 @@ class RentalItemsController < ApplicationController
     response_body = JSON.parse(response.response_body)
     if response_body.present?
       @rental_items = response_body
-      @rental_items = @rental_items.uniq { |item| item['ItemBrand'] }
+      @rental_items = @rental_items.uniq { |item| item['ItemModel'] }
     end
   end
 
@@ -58,5 +67,26 @@ class RentalItemsController < ApplicationController
 
   def rental_item_params
     params.permit(:rentalitemid, :itembrand, :itemgroup)
+  end
+
+  def enquire_form_params
+    params.permit(:id, :RentalItemID, :make, :model)
+  end
+
+  def enquire_submit_params
+    params.permit(
+      :vehicleCountMoreThanOne,
+      :vehicleCount,
+      :primaryUse,
+      :leaseDuration,
+      :make,
+      :model,
+      :companyName,
+      :fullName,
+      :lastName,
+      :email,
+      :phone,
+      :addistionalInfo
+    )
   end
 end

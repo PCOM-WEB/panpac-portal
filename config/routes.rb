@@ -7,6 +7,8 @@ Rails.application.routes.draw do
       get  :login_form
       post :login
       get  :register_form
+      get  :forgot_password_form
+      post :forgot_password
       get  :account_details
       get  :staff_members
       get  :ongoing_rental_contracts
@@ -21,7 +23,16 @@ Rails.application.routes.draw do
       post :enquire
       get  :book_form
     end
+    collection do
+      post :submit_enquire
+    end
   end
   resources :brands, only: [:index]
   resources :rental_item_groups, only: [:index]
+  resources :contracts, only: [] do
+    collection do
+      get  :service_booking_form
+      post :service_booking
+    end
+  end
 end

@@ -1,10 +1,10 @@
 <div class="col-6">
   <div class="card rental-item-card">
     <%= link_to rental_item_path(rental_item['RentalItemID']), class: 'card-img-top' do %>
-      <%= image_tag image_url('vehicle_icon.jpg') %>
+      <%= image_tag (rental_item['ItemImage'].present? ? rental_item['ItemImage'] : image_url('vehicle_icon.jpg')) %>
     <% end %>
     <div class="card-body">
-      <h5 class="card-title"><%= rental_item['ItemDescription'] %></h5>
+      <h5 class="card-title"><%= rental_item['ItemModel'] %></h5>
 
       <div class="d-flex justify-content-between vehicle-attributes-container">
         <div class="attribute-item">
@@ -25,7 +25,7 @@
     <div class="card-body">
       <div class="row no-gutters">
         <div class="col-6 card-button-container">
-          <%= link_to 'Enquire', enquire_form_rental_item_path(rental_item['RentalItemID']), class: 'btn btn-primary col-8 offset-2' %>
+          <%= link_to 'Enquire', enquire_form_rental_item_path(rental_item['RentalItemID'], { RentalItemID: rental_item['RentalItemID'], model: rental_item['ItemModel'], make: rental_item['ItemBrand'] }), class: 'btn btn-primary col-8 offset-2' %>
         </div>
         <div class="col-6 card-button-container">
           <%= link_to 'Book', book_form_rental_item_path(rental_item['RentalItemID']), class: 'btn btn-primary col-8 offset-2' %>

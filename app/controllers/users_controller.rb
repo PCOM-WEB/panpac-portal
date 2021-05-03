@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  skip_before_action :authenticate_user, only: [:login_form, :login]
+  skip_before_action :authenticate_user, only: [:login_form, :login, :forgot_password_form, :forgot_password]
 
   def login_form
     redirect_to account_details_users_path if @current_user.present?
@@ -31,6 +31,26 @@ class UsersController < ApplicationController
     redirect_to root_path
   end
 
+  def forgot_password_form
+
+    respond_to do |format|
+      format.html
+    end
+  end
+
+  def forgot_password
+    request_params    = set_login_params
+    response          = post_request('Login/ChangePass', request_params)
+    response_body     = JSON.parse(response.response_body)
+    if response.response_code == 200
+      @password_changed = true
+    end
+
+    respond_to do |format|
+      format.js
+    end
+  end
+
   # def register_form
 
   #   respond_to do |format|
@@ -57,6 +77,7 @@ class UsersController < ApplicationController
   def ongoing_rental_contracts
     response          = post_request('RentalContract/Ongoing', { custcode: @current_user.roc })
     @rental_contracts = JSON.parse(response.response_body) if response.response_code == 200
+    @rental_contracts = @rental_contracts.paginate(page: pagination_params[:page] || 1, per_page: PAGINATION_LIMIT)
 
     respond_to do |format|
       format.html
@@ -66,6 +87,7 @@ class UsersController < ApplicationController
   def rental_history
     response          = post_request('RentalContract/History', { custcode: @current_user.roc })
     @rental_histories = JSON.parse(response.response_body) if response.response_code == 200
+    @rental_histories = @rental_histories.paginate(page: pagination_params[:page] || 1, per_page: PAGINATION_LIMIT)
 
     respond_to do |format|
       format.html
@@ -75,6 +97,7 @@ class UsersController < ApplicationController
   def billing_history
     response            = post_request('Invoice', { custcode: @current_user.roc })
     @billing_histories  = JSON.parse(response.response_body) if response.response_code == 200
+    @billing_histories  = @billing_histories.paginate(page: pagination_params[:page] || 1, per_page: PAGINATION_LIMIT)
 
     respond_to do |format|
       format.html
@@ -93,5 +116,9 @@ class UsersController < ApplicationController
 
   def login_params
     params.permit('email', 'password', 'companyroc')
+  end
+
+  def pagination_params
+    params.permit(:page)
   end
 end

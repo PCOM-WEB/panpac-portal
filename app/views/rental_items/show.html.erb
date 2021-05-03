@@ -2,7 +2,7 @@
   <div class="row no-gutters">
     <div class="col-6 px-3">
       <div class="resource-image-container">
-        <%= image_tag image_url('vehicle_icon.jpg') %>
+        <%= image_tag (@rental_item['ItemImage'].present? ? rental_item['ItemImage'] : image_url('vehicle_icon.jpg')) %>
       </div>
     </div>
     <div class="col-6 px-3">
@@ -27,7 +27,7 @@
       </div>
       <div class="row no-gutters">
         <div class="col-6 card-button-container">
-          <%= link_to 'Enquire', enquire_form_rental_item_path(@rental_item['RentalItemID']), class: 'btn btn-primary col-8' %>
+          <%= link_to 'Enquire', enquire_form_rental_item_path(@rental_item['RentalItemID'], { RentalItemID: @rental_item['RentalItemID'], model: @rental_item['ItemModel'], make: @rental_item['ItemBrand'] }), class: 'btn btn-primary col-8' %>
         </div>
         <div class="col-6 card-button-container">
           <%= link_to 'Book', book_form_rental_item_path(@rental_item['RentalItemID']), class: 'btn btn-primary col-8' %>
