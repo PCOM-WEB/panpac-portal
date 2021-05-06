@@ -29,9 +29,11 @@
                   <td><%= history['SalesMan'] %></td>
                   <td><%= history['OutstandingAmount'] %></td>
                   <td class="d-flex justify-content-between table-pay-field">
-                    <% if history['OutstandingAmount'] > 0 or is nil %>
+                    <% if history['OutstandingAmount'] > 0 %>
                       <p><%= YES_LABEL %></p>
                       <%= link_to 'PAY', '#_', class: 'ml-2 primary-button-light' %>
+                    <% elsif history['OutstandingAmount'] = nil %>
+                      <%= NO_LABEL %>
                     <% else %>
                       <%= NO_LABEL %>
                     <% end %>
