@@ -32,7 +32,7 @@
                     <% if history['OutstandingAmount'] > 0 %>
                       <p><%= YES_LABEL %></p>
                       <%= link_to 'PAY', '#_', class: 'ml-2 primary-button-light' %>
-                    <% elsif history['OutstandingAmount'] = nil %>
+                    <% elsif history['OutstandingAmount'] = 0 or is nil %>
                       <%= NO_LABEL %>
                     <% else %>
                       <%= NO_LABEL %>
