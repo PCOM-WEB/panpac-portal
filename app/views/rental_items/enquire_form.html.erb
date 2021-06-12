@@ -7,7 +7,7 @@
 
     <%= link_to '', book_form_rental_item_path(@enquire_form['RentalItemID'], { RentalItemID: @enquire_form['RentalItemID'], model: @enquire_form['ItemModel'], make: @enquire_form['ItemBrand'] }), id: 'rental_booking_action', class: 'collapse' %>
 
-    <%= form_tag submit_enquire_rental_items_path, method: :post, remote: true, class: 'resource-form' do %>
+    <%= form_tag submit_enquire_rental_items_path, method: :put, remote: true, class: 'resource-form' do %>
       <div class="row no-gutters">
         <div class="col-6">
           <label class="d-inline-block">Do you want to add more than one vehicle?*</label>

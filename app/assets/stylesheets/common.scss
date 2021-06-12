@@ -132,6 +132,10 @@ nav {
 
   tbody {
     tr {
+      td {
+        min-width: 200px;
+      }
+
       .table-pay-field {
         border-left: none;
         border-right: none;

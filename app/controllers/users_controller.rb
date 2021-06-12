@@ -104,6 +104,24 @@ class UsersController < ApplicationController
     end
   end
 
+  def breach_of_contracts
+    response             = post_request('Matters/boc', { custcode: @current_user.roc })
+    @breach_of_contracts = JSON.parse(response.response_body)
+
+    respond_to do |format|
+      format.html
+    end
+  end
+
+  def accidents
+    response   = post_request('Matters/Accident', { custcode: @current_user.roc })
+    @accidents = JSON.parse(response.response_body)
+
+    respond_to do |format|
+      format.html
+    end
+  end
+
   private
 
   def set_login_params

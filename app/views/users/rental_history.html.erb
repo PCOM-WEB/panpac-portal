@@ -24,8 +24,8 @@
                 <tr>
                   <td><%= history['RentalContract'] %></td>
                   <td><%= history['VehicleNo'] %></td>
-                  <td><%= history['RentFrom'] %></td>
-                  <td><%= history['RentTo'] %></td>
+                  <td><%= application_date_format(history['RentFrom']) %></td>
+                  <td><%= application_date_format(history['RentTo']) %></td>
                   <td><%= history['SalesMan'] %></td>
                   <td><%= history['OutstandingAmount'] %></td>
                   <td class="d-flex justify-content-between table-pay-field">

@@ -26,7 +26,7 @@
               <% @billing_histories.each do |history| %>
                 <tr>
                   <td><%= history['VoucherNumber'] %></td>
-                  <td><%= history['SalesDate'] %></td>
+                  <td><%= application_date_format(history['SalesDate']) %></td>
                   <td><%= history['CustAttention'] %></td>
                   <td><%= history['RentalContract'] %></td>
                   <td><%= history['VehicleNo'] %></td>

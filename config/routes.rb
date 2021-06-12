@@ -14,6 +14,8 @@ Rails.application.routes.draw do
       get  :ongoing_rental_contracts
       get  :rental_history
       get  :billing_history
+      get  :breach_of_contracts
+      get  :accidents
       delete :logout
     end
   end

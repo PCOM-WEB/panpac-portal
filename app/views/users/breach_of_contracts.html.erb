@@ -1,0 +1,77 @@
+<div class="dashboard-container">
+  <div class="row no-gutters">
+    <div class="col-3">
+      <%= render partial: 'users/user_actions' %>
+    </div>
+    <div class="col-9">
+      <div class="action-detail-container">
+        <h3>Breach of Contracts</h3>
+
+        <ul class="nav nav-tabs mt-3" id="breach_of_contracts" role="tablist">
+          <% @breach_of_contracts.each.with_index(1) do |contract, index| %>
+            <li class="nav-item">
+              <a class="nav-link <%= 'active' if index == 1 %>" id="contract-<%= index %>-tab" data-toggle="tab" href="#contract-<%= index %>" role="tab" aria-controls="contract-<%= index %>" aria-selected="true"><%= index %></a>
+            </li>
+          <% end %>
+        </ul>
+
+        <div class="tab-content pt-3" id="myTabContent">
+          <% @breach_of_contracts.each.with_index(1) do |contract, index| %>
+            <div class="tab-pane fade show attribute-value-label-container <%= 'active' if index == 1 %>" id="contract-<%= index %>" role="tabpanel" aria-labelledby="contract-<%= index %>-tab">
+              <label class="attribute-label pr-3">BOCID</label>
+              <label class="attribute-label-value"><%= contract['BocID'] %></label>
+              <br />
+              <label class="attribute-label pr-3">Agreement No</label>
+              <label class="attribute-label-value"><%= contract['AgmtNo'] %></label>
+              <br />
+              <label class="attribute-label pr-3">Agreement Date</label>
+              <label class="attribute-label-value"><%= application_date_format(contract['AgmtDate']) %></label>
+              <br />
+              <label class="attribute-label pr-3">Lease Period</label>
+              <label class="attribute-label-value"><%= contract['LeasePeriod'] %></label>
+              <br />
+              <label class="attribute-label pr-3">Leasing fees per month</label>
+              <label class="attribute-label-value"><%= contract['LeasingFeesPerMth'] %></label>
+              <br />
+              <label class="attribute-label pr-3">Contract Amount</label>
+              <label class="attribute-label-value"><%= contract['ContractAmt'] %></label>
+              <br />
+              <label class="attribute-label pr-3">Vehicle Relase Date Time</label>
+              <label class="attribute-label-value"><%= application_date_format(contract['ReleaseVehDateTime']) %></label>
+              <br />
+              <label class="attribute-label pr-3">Balance Period of Contract</label>
+              <label class="attribute-label-value"><%= contract['BalPeriodOfContract'] %></label>
+              <br />
+              <label class="attribute-label pr-3">Balance Leasing fees per Month</label>
+              <label class="attribute-label-value"><%= contract['BalLeasingFeesPerMth'] %></label>
+              <br />
+              <label class="attribute-label pr-3">Balance Contract Amount</label>
+              <label class="attribute-label-value"><%= contract['BalContractAmt'] %></label>
+              <br />
+              <label class="attribute-label pr-3">Return Vehicle Date Time</label>
+              <label class="attribute-label-value"><%= application_date_format(contract['ReturnVehDateTime']) %></label>
+              <br />
+              <label class="attribute-label pr-3">Agreed Balance Period of Contract</label>
+              <label class="attribute-label-value"><%= contract['AgreedBalPeriodOfContract'] %></label>
+              <br />
+              <label class="attribute-label pr-3">Agreed Balance Contract</label>
+              <label class="attribute-label-value"><%= contract['AgreedBalContract'] %></label>
+              <br />
+              <label class="attribute-label pr-3">Repossession Vehicle Date Time</label>
+              <label class="attribute-label-value"><%= application_date_format(contract['RepossessionVehDateTime']) %></label>
+              <br />
+              <label class="attribute-label pr-3">Admin Legal Fee</label>
+              <label class="attribute-label-value"><%= contract['BOCAdminLegalFee'] %></label>
+              <br />
+              <label class="attribute-label pr-3">Other Fees</label>
+              <label class="attribute-label-value"><%= contract['BOCOthersFee'] %></label>
+              <br />
+              <label class="attribute-label pr-3">Outstanding Amount </label>
+              <label class="attribute-label-value"><%= contract['OutstandingAmt'] %></label>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -27,14 +27,14 @@
                 <tr>
                   <td><%= contract['RentalContract'] %></td>
                   <td><%= contract['VehicleNo'] %></td>
-                  <td><%= contract['RentFrom'] %></td>
-                  <td><%= contract['RentTo'] %></td>
+                  <td><%= application_date_format(contract['RentFrom']) %></td>
+                  <td><%= application_date_format(contract['RentTo']) %></td>
                   <td><%= contract['SalesMan'] %></td>
                   <td><%= contract['ContactPerson'] %></td>
                   <td><%= contract['NoOfService'] || 0 %></td>
                   <td class="d-flex justify-content-between table-pay-field">
                     <% if contract['ServiceDue'] %>
-                      <p><%= contract['ServiceDue'] %></p>
+                      <p><%= application_date_format(contract['ServiceDue']) %></p>
                       <%= link_to 'Service', service_booking_form_contracts_path(contract), class: 'ml-2 primary-button-light' %>
                     <% else %>
                       --
