@@ -43,10 +43,10 @@
                   <td><%= contract['OutstandingAmount'] %></td>
                   <td class="d-flex justify-content-between table-pay-field">
                     <% if contract['OutstandingAmount'] > 0 %>
-                      <%= NO_LABEL %>
-                    <% else %>
                       <p><%= YES_LABEL %></p>
                       <%= link_to 'PAY', '#_', class: 'ml-2 primary-button-light' %>
+                    <% else %>
+                      <%= NO_LABEL %>
                     <% end %>
                   </td>
                 </tr>
