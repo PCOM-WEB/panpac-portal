@@ -1,17 +1,17 @@
 <div class="resource-container row no-gutters">
   <div class="col-8 offset-2">
     <div class="resource-heading">
-      <h2>Rental Enquiry</h2>
+      <h2>Vehicle Booking</h2>
     </div>
-    <%= form_tag '#', method: :post, class: 'resource-form' do %>
+    <%= form_tag '#', method: :post, multipart: true, class: 'resource-form' do %>
       <div class="row no-gutters pt-3">
         <div class="col-6">
           <div>
             <label>Make</label>
           </div>
           <div>
-            <%= text_field_tag 'makeDisabled', '', disabled: true, class: 'col-6' %>
-            <%= hidden_field_tag 'make', '' %>
+            <%= text_field_tag 'makeDisabled', @rental_item['ItemBrand'], disabled: true, class: 'col-6' %>
+            <%= hidden_field_tag 'make', @rental_item['ItemBrand'] %>
           </div>
         </div>
         <div class="col-6 pl-3">
@@ -19,8 +19,8 @@
             <label>Model</label>
           </div>
           <div>
-            <%= text_field_tag 'modelDisabled', '', disabled: true, class: 'col-6' %>
-            <%= hidden_field_tag 'model', '' %>
+            <%= text_field_tag 'modelDisabled', @rental_item['ItemGroup'], disabled: true, class: 'col-6' %>
+            <%= hidden_field_tag 'model', @rental_item['ItemGroup'] %>
           </div>
         </div>
       </div>
@@ -28,10 +28,19 @@
       <div class="row no-gutters pt-3">
         <div class="col-6">
           <div>
-            <label for="rental_period">Rental Period*</label>
+            <label for="rent_from">Rent From</label>
           </div>
           <div>
-            <%= select_tag 'rentalPeriod', options_for_select([]), include_blank: 'Please Select', required: true, id: 'rental_period', class: 'col-6' %>
+            <%= date_field_tag 'rentFrom', '', value: Date.today, id: 'rent_from', required: true, class: 'col-6' %>
+          </div>
+        </div>
+
+        <div class="col-6 pl-3">
+          <div>
+            <label for="rent_to">Rent To</label>
+          </div>
+          <div>
+            <%= date_field_tag 'rentTo', '', value: Date.today + 3.months, id: 'rent_to', required: true, class: 'col-6' %>
           </div>
         </div>
       </div>
@@ -39,10 +48,64 @@
       <div class="row no-gutters pt-3">
         <div class="col-12">
           <div>
-            <label for="additional_info">Any Additional Information</label>
+            <label for="additional_comments">Additional Comments</label>
           </div>
           <div>
-            <%= text_area_tag 'addistionalInfo', '', id: 'additional_info', class: 'col-10' %>
+            <%= text_area_tag 'addistionalInfo', '', rows: 7, id: 'additional_comments', class: 'col-12' %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row no-gutters pt-3">
+        <div class="col-12">
+          <div>
+            <label>Additiona Features</label>
+          </div>
+          <div>
+            <div class="row no-gutters">
+              <div class="col-11">
+                <label class="border w-100 p-2 m-0"><b>Description</b></label>
+              </div>
+              <div class="col-1">
+                <label class="border w-100 p-2 h-100 m-0"></label>
+              </div>
+
+              <div class="col-11">
+                <label class="border w-100 p-2 m-0">Tailgate</label>
+              </div>
+              <div class="col-1">
+                <label class="border w-100 p-2 h-100 m-0 text-center">
+                  <%= check_box_tag 'tailgate', 'tailgate', false %>
+                </label>
+              </div>
+
+              <div class="col-11">
+                <label class="border w-100 p-2 m-0">Refrigerator</label>
+              </div>
+              <div class="col-1">
+                <label class="border w-100 p-2 h-100 m-0 text-center">
+                  <%= check_box_tag 'refrigerator', 'refrigerator', true %>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row no-gutters pt-3">
+        <div class="col-12">
+          <div class="d-flex justify-content-start">
+            <label>Supporting Documents</label>
+            <%= file_field_tag 'supportingDocuments', class: 'pl-5', multiple: true %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row no-gutters pt-5">
+        <div class="col-12">
+          <div class="d-flex justify-content-start">
+            <%= check_box_tag 'termsAndConditions', 'termsAndConditions', false, class: 'my-auto mr-3' %>
+            <label class="m-0" for="termsAndConditions">I agree to the terms and conditions.</label>
           </div>
         </div>
       </div>

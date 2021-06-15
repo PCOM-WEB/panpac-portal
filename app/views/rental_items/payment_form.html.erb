@@ -1,0 +1,55 @@
+<div class="resource-container row no-gutters">
+  <div class="col-8 offset-2">
+    <div class="resource-heading">
+      <h2>Payment</h2>
+    </div>
+    <%= form_tag '#', method: :post, class: 'resource-form' do %>
+      <div class="row no-gutters pt-3">
+        <div class="col-6">
+          <div>
+            <label>Contract Reference</label>
+          </div>
+          <div>
+            <%= text_field_tag 'contractReferenceDisabled', params[:contractReference], disabled: true, class: 'col-6' %>
+            <%= hidden_field_tag 'contractReference', params[:contractReference] %>
+          </div>
+        </div>
+        <div class="col-6 pl-3">
+          <div>
+            <label>Invoice Number</label>
+          </div>
+          <div>
+            <%= text_field_tag 'invoiceNumberDisabled', params[:invoiceNumber], disabled: true, class: 'col-6' %>
+            <%= hidden_field_tag 'invoiceNumber', params[:invoiceNumber] %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row no-gutters pt-3">
+        <div class="col-6">
+          <div>
+            <label>Payment Method</label>
+          </div>
+          <div>
+            <%= select_tag 'paymentMethodDisabled', options_for_select([['MasterCard', 'mastercard'], ['Visa', 'visa'], ['American Express', 'americanExpress']], 'mastercard'), class: 'col-6' %>
+          </div>
+        </div>
+        <div class="col-6 pl-3">
+          <div>
+            <label>Total Amount</label>
+          </div>
+          <div>
+            <%= text_field_tag 'totalAmountDisabled', params[:totalAmount], disabled: true, class: 'col-6' %>
+            <%= hidden_field_tag 'totalAmount', params[:totalAmount] %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row no-gutters pt-5">
+        <div class="col-10 d-flex justify-content-center">
+          <%= submit_tag 'Make Payment', data: { disable_with: "Submitting..." }, class: 'btn btn-primary' %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

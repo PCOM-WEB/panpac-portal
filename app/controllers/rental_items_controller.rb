@@ -36,6 +36,14 @@ class RentalItemsController < ApplicationController
   end
 
   def book_form
+    fetch_rental_item
+
+    respond_to do |format|
+      format.html
+    end
+  end
+
+  def payment_form
 
     respond_to do |format|
       format.html

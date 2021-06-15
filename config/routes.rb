@@ -27,6 +27,7 @@ Rails.application.routes.draw do
     end
     collection do
       post :submit_enquire
+      get  :payment_form
     end
   end
   resources :brands, only: [:index]

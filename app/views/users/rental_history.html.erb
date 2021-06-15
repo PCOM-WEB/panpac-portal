@@ -31,7 +31,7 @@
                   <td class="d-flex justify-content-between table-pay-field">
                     <% if history['OutstandingAmount'].present? && history['OutstandingAmount'] > 0 %>
                       <p><%= YES_LABEL %></p>
-                      <%= link_to 'PAY', '#_', class: 'ml-2 primary-button-light' %>
+                      <%= link_to 'PAY', payment_form_rental_items_path({ contractReference: history['RentalContract'], invoiceNumber: history['VehicleNo'], totalAmount: history['OutstandingAmount'] }), class: 'ml-2 primary-button-light' %>
                     <% else %>
                       <%= NO_LABEL %>
                     <% end %>
